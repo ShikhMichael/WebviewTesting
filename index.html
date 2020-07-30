@@ -9,8 +9,18 @@
 
 <script type="text/javascript">
     function sendMessageToEnvelope(message) {
-        //AndroidJSBridge.handleWebMessageForEnvelope(message);
-        window.webkit.messageHandlers.webMessageForEnvelope.postMessage(message);
+        var userAgent = window.navigator.userAgent;
+        var  platform = window.navigator.platform;
+        if(/Android/.test(userAgent)) {
+            AndroidJSBridge.handleWebMessageForEnvelope(message);
+        }
+        else if(['iPhone', 'iPad', 'iPod'].indexOf(platform)!=-1){
+            window.webkit.messageHandlers.webMessageForEnvelope.postMessage(message);
+        }
+        else {
+            console.warn("unsupported platform: " + platform);
+        }
+
     }
 </script>
 
