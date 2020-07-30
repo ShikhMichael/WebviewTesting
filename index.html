@@ -10,7 +10,7 @@
 <script type="text/javascript">
     function sendMessageToEnvelope(message) {
         //AndroidJSBridge.handleWebMessageForEnvelope(message);
-        window.webkit.messageHandlers.jsMessageHandler.postMessage(message);
+        window.webkit.messageHandlers.webMessageForEnvelope.postMessage(message);
     }
 </script>
 
