@@ -2,11 +2,10 @@
 <html>
 <body>
 
-<h1>WebView Messaging testing</h1>
+<h1>Untrusted Page</h1>
 
-<input type="button" value="Send Hello" onClick="sendMessageToEnvelope('Hello')" />
-<input type="button" value="Send Michael" onClick="sendMessageToEnvelope('Michael')" />
-<input type="button" value="Go to Untrusted" onclick="location.href='https://shikhmichael.github.io/WebviewTesting/untrusted';" />
+<input type="button" value="Send Hello" onClick="sendMessageToEnvelope('Hello from untrusted')" />
+<input type="button" value="Go back to index" onclick="location.href='https://shikhmichael.github.io/WebviewTesting/';" />
 
 <script type="text/javascript">
     function sendMessageToEnvelope(message) {
