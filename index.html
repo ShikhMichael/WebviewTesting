@@ -9,18 +9,22 @@
 
 <script type="text/javascript">
     function sendMessageToEnvelope(message) {
-        var userAgent = window.navigator.userAgent;
-        var  platform = window.navigator.platform;
-        if(/Android/.test(userAgent)) {
-            AndroidJSBridge.handleWebMessageForEnvelope(message);
-        }
-        else if(['iPhone', 'iPad', 'iPod'].indexOf(platform)!=-1){
+        var platform = window.navigator.platform;
+        if (isAndroid()) {
+            AndroidWebViewInterface.sendWebMessageForEnvelope(message);
+        } else if (isIos()) {
             window.webkit.messageHandlers.webMessageForEnvelope.postMessage(message);
-        }
-        else {
+        } else {
             console.warn("unsupported platform: " + platform);
         }
-
+    }
+    function isIos() {
+        var platform = window.navigator.platform;
+        return ['iPhone', 'iPad', 'iPod'].indexOf(platform) != -1;
+    }
+    function isAndroid() {
+        var userAgent = window.navigator.userAgent;
+        return /Android/.test(userAgent);
     }
 </script>
 
