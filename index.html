@@ -10,11 +10,15 @@
 
 <script type="text/javascript">
     function sendMessageToEnvelope(message) {
+        var messageToSend = {
+            messageType: message,
+            sender: "Index page"
+        }
         var platform = window.navigator.platform;
         if (isAndroid()) {
-            AndroidWebViewInterface.sendWebMessageForEnvelope(message);
+            AndroidWebViewInterface.sendWebMessageForEnvelope(messageToSend);
         } else if (isIos()) {
-            window.webkit.messageHandlers.webMessageForEnvelope.postMessage(message);
+            window.webkit.messageHandlers.webMessageForEnvelope.postMessage(messageToSend);
         } else {
             console.warn("unsupported platform: " + platform);
         }
