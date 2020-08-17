@@ -19,7 +19,7 @@
             messageToSend = JSON.stringify(messageToSend);
             AndroidWebViewInterface.sendWebMessageForEnvelope(messageToSend);
         } else if (isIos()) {
-            window.webkit.messageHandlers.webMessageForEnvelope.postMessage(messageToSend);
+            window.webkit.messageHandlers.sendWebMessageForEnvelope.postMessage(messageToSend);
         } else {
             console.warn("unsupported platform: " + platform);
         }
