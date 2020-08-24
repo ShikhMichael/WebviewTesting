@@ -15,9 +15,9 @@
             messageType: message,
             sender: "Index page"
         }
+        messageToSend = JSON.stringify(messageToSend);
         var platform = window.navigator.platform;
         if (isAndroid()) {
-            messageToSend = JSON.stringify(messageToSend);
             AndroidWebViewInterface.sendWebMessageForEnvelope(messageToSend);
         } else if (isIos()) {
             window.webkit.messageHandlers.sendWebMessageForEnvelope.postMessage(messageToSend);
