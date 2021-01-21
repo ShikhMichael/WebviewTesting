@@ -4,36 +4,8 @@
 
 <div style="text-align: center;">
 <h1>WebView Messaging testing</h1>
-<input type="button" value="Send Hello" onClick="sendMessageToEnvelope('Hello')" />
-<input type="button" value="Back to envelope" onClick="sendMessageToEnvelope('RETURN_TO_ENVELOPE')" />
-<input type="button" value="Go to test page" onclick="location.href='https://shikhmichael.github.io/WebviewTesting/test';" />
+<input type="button" value="Send Hello" onclick="location.href='https://shikhmichael.github.io/WebviewTesting/index?eventName=hello_button_clicked&day=today'" />
 </div>
-
-<script type="text/javascript">
-    function sendMessageToEnvelope(message) {
-        var messageToSend = {
-            messageType: message,
-            sender: "Index page"
-        }
-        messageToSend = JSON.stringify(messageToSend);
-        var platform = window.navigator.platform;
-        if (isAndroid()) {
-            AndroidWebViewInterface.sendWebMessageForEnvelope(messageToSend);
-        } else if (isIos()) {
-            window.webkit.messageHandlers.sendWebMessageForEnvelope.postMessage(messageToSend);
-        } else {
-            console.warn("unsupported platform: " + platform);
-        }
-    }
-    function isIos() {
-        var platform = window.navigator.platform;
-        return ['iPhone', 'iPad', 'iPod'].indexOf(platform) != -1;
-    }
-    function isAndroid() {
-        var userAgent = window.navigator.userAgent;
-        return /Android/.test(userAgent);
-    }
-</script>
 
 </body>
 </html>
