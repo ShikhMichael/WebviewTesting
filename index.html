@@ -6,9 +6,19 @@
 <body style="background-color:coral;">
 
 <div style="text-align: center;">
-<h1>WebView Messaging testing WebView Messaging testing WebView Messaging testing</h1>
-<input type="button" value="Send Hello" onclick="location.href='https://shikhmichael.github.io/WebviewTesting/index?eventName=hello_button_clicked&day=today'" />
+<h1>Mock Episode html</h1>
+<input type="button" value="Send Message to App" onclick="" />
 </div>
+<div style="text-align: center;">
+    <p>Message from app:</p>
+    <p id="messageText"> Message from App goes here</p>
+</div>
+
+<script>
+    function processMessageFromApp(msg) {
+        document.getElementById("messageText").innerHTML = msg;
+    }
+</script>
 
 </body>
 </html>
