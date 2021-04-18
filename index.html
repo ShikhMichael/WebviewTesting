@@ -11,12 +11,12 @@
 </div>
 <div style="text-align: center;">
     <p>Message from app:</p>
-    <p id="messageText"> Message from App goes here</p>
+    <p id="messageText"> Messages from App goes here</p>
 </div>
 
 <script>
     function processMessageFromApp(msg) {
-        document.getElementById("messageText").innerHTML = msg;
+        document.getElementById("messageText").innerHTML += "<br>" + msg;
     }
 </script>
 
